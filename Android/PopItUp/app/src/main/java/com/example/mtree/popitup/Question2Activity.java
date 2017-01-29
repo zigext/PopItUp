@@ -8,7 +8,8 @@ import android.annotation.TargetApi;
         import android.graphics.BitmapFactory;
         import android.graphics.Color;
         import android.os.Build;
-        import android.os.Vibrator;
+import android.os.Handler;
+import android.os.Vibrator;
         import android.support.v7.app.AlertDialog;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
@@ -19,8 +20,9 @@ import android.annotation.TargetApi;
         import android.widget.ImageView;
         import android.widget.LinearLayout;
         import android.widget.TextView;
+import android.widget.Toast;
 
-        import org.json.JSONArray;
+import org.json.JSONArray;
         import org.json.JSONException;
         import org.json.JSONObject;
 
@@ -59,6 +61,8 @@ public class Question2Activity extends AppCompatActivity implements View.OnClick
     private int score;
     private int round;
 
+    private Intent intent;
+    boolean doubleBackToExitPressedOnce = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,13 +123,28 @@ public class Question2Activity extends AppCompatActivity implements View.OnClick
         builder.setPositiveButton("NEXT", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-//                if (round < 4){
+
+                if (round < 6){
                 setTitle();
                 getQuestion();
                 setQuestion();
                 getWindow().getDecorView().findViewById(android.R.id.content).invalidate();
                 round++;
-//                }
+                }
+
+                else {
+                    new AlertDialog.Builder(Question2Activity.this)
+                            .setMessage("เอาชนะปลาหมึกได้แล้ว ไปลุยกันต่อเลย!")
+                            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    intent = new Intent(Question2Activity.this, MainActivity.class);
+                                    startActivity(intent);
+                                }
+                            })
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .show();
+                }
+
             }
         });
 
@@ -335,5 +354,24 @@ public class Question2Activity extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View v) {
 
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce = false;
+            }
+        }, 2000);
     }
 }

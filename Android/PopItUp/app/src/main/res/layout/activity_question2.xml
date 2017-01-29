@@ -9,7 +9,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@mipmap/question_bg"
+        android:src="@mipmap/question2_bg"
         android:scaleType="centerCrop"/>
 
     <LinearLayout

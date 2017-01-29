@@ -31,6 +31,8 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
     private Button btnDecline;
     private Button btnAccept;
 
+    boolean doubleBackToExitPressedOnce = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,20 +96,40 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode != RESULT_CANCELED ){
+            layoutActivity.setWeightSum((float) 10.0);
 
-        layoutActivity.setWeightSum((float) 10.0);
+            layerBtnPhoto.setVisibility(View.GONE);
+            layerPhoto.setVisibility(View.VISIBLE);
+            layerButton.setVisibility(View.VISIBLE);
 
-        layerBtnPhoto.setVisibility(View.GONE);
-        layerPhoto.setVisibility(View.VISIBLE);
-        layerButton.setVisibility(View.VISIBLE);
+            getWindow().getDecorView().findViewById(android.R.id.content).invalidate();
+        }
 
-        getWindow().getDecorView().findViewById(android.R.id.content).invalidate();
 
         if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {
             Bitmap photo = (Bitmap) data.getExtras().get("data");
             imgView.setImageBitmap(photo);
         }
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce = false;
+            }
+        }, 2000);
     }
 
 }

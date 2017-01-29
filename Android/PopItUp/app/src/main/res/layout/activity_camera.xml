@@ -37,9 +37,10 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@color/color_blue_transparent"
+            android:background="@drawable/rounded_corner_camera_thing"
             android:gravity="center"
             android:text="ดอกไม้"
+            android:layout_margin="15dp"
             android:textAlignment="center"
             android:textColor="@android:color/black"
             android:textSize="40sp" />
