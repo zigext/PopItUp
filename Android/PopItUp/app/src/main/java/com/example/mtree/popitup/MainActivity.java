@@ -181,7 +181,8 @@ package com.example.mtree.popitup;
 
 import android.content.DialogInterface;
         import android.content.Intent;
-        import android.support.v7.app.AlertDialog;
+import android.media.MediaPlayer;
+import android.support.v7.app.AlertDialog;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
         import android.text.Html;
@@ -201,13 +202,19 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
 
     private ImageButton btnStart;
 
+    private MediaPlayer welcome;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        welcome = MediaPlayer.create(this, R.raw.welcome);
+        welcome.start();
+
         btnStart = (ImageButton) findViewById(R.id.btnStart);
+
 
     }
 

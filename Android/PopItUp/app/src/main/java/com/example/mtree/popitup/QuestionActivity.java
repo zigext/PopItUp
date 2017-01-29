@@ -7,12 +7,14 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Vibrator;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -64,6 +66,11 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
     private Intent intent;
     boolean doubleBackToExitPressedOnce = false;
 
+    private MediaPlayer correct1;
+    private MediaPlayer wrong2;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,6 +88,9 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
         tvTitle = (TextView) findViewById(R.id.tvTitle);
 
         v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+
+        correct1 = MediaPlayer.create(this, R.raw.correct1);
+        wrong2 = MediaPlayer.create(this, R.raw.wrong2);
 
         score = 0;
         round = 0;
@@ -294,10 +304,12 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private int checkAnswer(String ans) {
+
         if (correct_ans.equals(ans)) {
 //            Toast.makeText(QuestionActivity.this,
 //                    "You're right!",
 //                    Toast.LENGTH_SHORT).show();
+            correct1.start();
             correctDialog();
 //            setTitle();
 //            getQuestion();
@@ -307,6 +319,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
 
         } else {
             v.vibrate(200);
+            wrong2.start();
             wrongDialog();
 //            Toast.makeText(QuestionActivity.this,
 //                    "You're wrong, try again",

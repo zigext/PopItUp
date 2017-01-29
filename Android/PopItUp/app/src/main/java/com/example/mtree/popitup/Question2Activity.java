@@ -7,7 +7,8 @@ import android.annotation.TargetApi;
         import android.graphics.Bitmap;
         import android.graphics.BitmapFactory;
         import android.graphics.Color;
-        import android.os.Build;
+import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Vibrator;
         import android.support.v7.app.AlertDialog;
@@ -64,6 +65,9 @@ public class Question2Activity extends AppCompatActivity implements View.OnClick
     private Intent intent;
     boolean doubleBackToExitPressedOnce = false;
 
+    private MediaPlayer correct1;
+    private MediaPlayer wrong1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,6 +85,9 @@ public class Question2Activity extends AppCompatActivity implements View.OnClick
         tvTitle = (TextView) findViewById(R.id.tvTitle);
 
         v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+
+        correct1 = MediaPlayer.create(this, R.raw.correct1);
+        wrong1 = MediaPlayer.create(this, R.raw.wrong1);
 
         score = 0;
         round = 0;
@@ -299,6 +306,7 @@ public class Question2Activity extends AppCompatActivity implements View.OnClick
 //            Toast.makeText(QuestionActivity.this,
 //                    "You're right!",
 //                    Toast.LENGTH_SHORT).show();
+            correct1.start();
             correctDialog();
 //            setTitle();
 //            getQuestion();
@@ -308,6 +316,7 @@ public class Question2Activity extends AppCompatActivity implements View.OnClick
 
         } else {
             v.vibrate(200);
+            wrong1.start();
             wrongDialog();
 //            Toast.makeText(QuestionActivity.this,
 //                    "You're wrong, try again",
