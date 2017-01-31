@@ -248,6 +248,8 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
             case ("code001"):   return "เกมตอบคำถาม";
             case ("code002"):   return "เกมตอบคำถาม 2";
             case ("code003"):   return "เกมหาของ";
+            case ("code004"):   return "เกมคิดเลข";
+            case ("bridge"):   return "เกมสร้างสะพาน";
             default:            return "CODE FAILED";
         }
     }
@@ -312,7 +314,17 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
                 startActivity(intent);
                 break;
 
+            case ("code004"): //math game
+                intent = new Intent(MainActivity.this, QuestionmathActivity.class);
+                intent.putExtra("code", strCode);
+                startActivity(intent);
+                break;
 
+            case ("bridge"): //Bridge game
+                intent = new Intent(MainActivity.this, BridgeActivity.class);
+                intent.putExtra("code", strCode);
+                startActivity(intent);
+                break;
 
             default:
                 Toast.makeText(MainActivity.this, "CODE FAILED", Toast.LENGTH_LONG).show();

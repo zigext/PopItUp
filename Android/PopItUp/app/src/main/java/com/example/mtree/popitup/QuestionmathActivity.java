@@ -40,24 +40,19 @@ import static com.example.mtree.popitup.R.id.button2;
 import static com.example.mtree.popitup.R.id.button3;
 import static com.example.mtree.popitup.R.id.button4;
 
-public class QuestionActivity extends AppCompatActivity implements View.OnClickListener {
+public class QuestionmathActivity extends AppCompatActivity implements View.OnClickListener {
 
     private String code;
-    private JSONArray json_questions;
-
-    private String question;
-    private String[] choices;
-    private String correct_ans;
 
     private TextView tvTitle;
     private TextView tvQuestion;
+
     private List<Button> buttons;
-
     private static final int[] buttonId = {button1, button2, button3, button4};
-
     ArrayList<Integer> list;
 
     private int number = 0;
+
     private Vibrator v;
 
     private int score;
@@ -69,10 +64,21 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
     private MediaPlayer correct1;
     private MediaPlayer wrong2;
 
+    private int operand1;
+    private int operand2;
+
+    private String[] operatorSet = new String[]{"+","-","x"};;
+    private String operator;
+
+    private String question;
+    private int correct_ans;
+    private String[] choices = new String[4];
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_question);
+        setContentView(R.layout.activity_questionmath);
 
         Intent intent = getIntent();
         code = intent.getStringExtra("code");
@@ -96,8 +102,9 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
         list = new ArrayList<Integer>();
 
         setTitle();
-        getQuestion();
-        setQuestion();
+        randomQuestion();
+        getChoices();
+        setChoices();
 
     }
 
@@ -125,6 +132,136 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
+    private void setTitle() {
+        Random rnd = new Random();
+        int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
+        tvTitle.setBackgroundColor(color);
+
+        number++;
+        String txtNumber = String.format("%02d", number);
+        tvTitle.setText(txtNumber);
+    }
+
+    private void randomQuestion(){
+        Random rand = new Random();
+
+        operand1 = rand.nextInt(10) + 1;
+        operand2 = rand.nextInt(10) + 1;
+
+        while(operand2 > operand1){
+            operand2 = rand.nextInt(10) + 1;
+        }
+
+        int opr = new Random().nextInt(operatorSet.length);
+        operator = operatorSet[opr];
+
+        question = operand1 + " " + operator + " " + operand2;
+        tvQuestion.setText(question);
+    }
+
+    private void getAnswer() {
+        switch (operator){
+            case ("+"): correct_ans = operand1 + operand2;  break;
+            case ("-"): correct_ans = operand1 - operand2;  break;
+            case ("x"): correct_ans = operand1 * operand2;  break;
+            default: correct_ans = -1;
+        }
+    }
+
+    private void getChoices() {
+        getAnswer();
+
+        list.add(correct_ans);
+
+        for (int i = 0; i < 3; i++){
+            choices[i] = randomChoice()+"";
+        }
+        choices[3] = correct_ans+"";
+
+        shuffleChoices(choices);
+    }
+
+    private int randomChoice() {
+        Random rand = new Random();
+
+        int index = rand.nextInt(40);
+        while (list.contains(index)) {
+            index = rand.nextInt(40);
+        }
+
+        list.add(index);
+
+        Log.d("bug test", index + "");
+
+        return index;
+    }
+
+    private void setChoices() {
+
+        buttons = new ArrayList<Button>(buttonId.length);
+
+        for (int id : buttonId) {
+            final Button button = (Button) findViewById(id);
+            button.setOnClickListener(btnClick);
+            buttons.add(button);
+        }
+
+        tvQuestion.setText(question);
+
+        for (int i = 0; i < buttonId.length; i++) {
+            buttons.get(i).setText(choices[i] + "");
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                buttons.get(i).setBackground(getResources().getDrawable(R.drawable.rounded_corner_choice));
+                buttons.get(i).setTextColor(0xFFFFFFFF);
+                buttons.get(i).setEnabled(true);
+            }
+        }
+    }
+
+    @TargetApi(21)
+    private void shuffleChoices(String[] chs) {
+        Random rnd = ThreadLocalRandom.current();
+        for (int i = chs.length - 1; i > 0; i--) {
+            int index = rnd.nextInt(i + 1);
+            // Simple swap
+            String a = chs[index];
+            chs[index] = chs[i];
+            chs[i] = a;
+        }
+    }
+
+    private int checkAnswer(String ans) {
+        String correct_ans_str = correct_ans + "";
+        if (correct_ans_str.equals(ans)) {
+            //            Toast.makeText(QuestionActivity.this,
+            //                    "You're right!",
+            //                    Toast.LENGTH_SHORT).show();
+            correct1.start();
+            correctDialog();
+            //            setTitle();
+            //            getQuestion();
+            //            setQuestion();
+            //            getWindow().getDecorView().findViewById(android.R.id.content).invalidate();
+            return 1;
+
+        } else {
+            v.vibrate(200);
+            wrong2.start();
+            wrongDialog();
+            //            Toast.makeText(QuestionActivity.this,
+            //                    "You're wrong, try again",
+            //                    Toast.LENGTH_SHORT).show();
+            return 0;
+        }
+
+    }
+
+    @Override
+    public void onClick(View v) {
+
+    }
+
     private void correctDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
@@ -132,20 +269,21 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-                if (round < 6){
+                if (round < 5){
                     setTitle();
-                    getQuestion();
-                    setQuestion();
+                    randomQuestion();
+                    getChoices();
+                    setChoices();
                     getWindow().getDecorView().findViewById(android.R.id.content).invalidate();
                     round++;
                 }
 
                 else {
-                    new AlertDialog.Builder(QuestionActivity.this)
-                            .setMessage("เอาชนะปูยักษ์ได้แล้ว ไปสร้างถนนกันต่อเลย!")
+                    new AlertDialog.Builder(QuestionmathActivity.this)
+                            .setMessage("เก่งมาก เจ้าเซียนคณิตศาสตร์จริงๆ!")
                             .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
-                                    intent = new Intent(QuestionActivity.this, MainActivity.class);
+                                    intent = new Intent(QuestionmathActivity.this, MainActivity.class);
                                     startActivity(intent);
                                 }
                             })
@@ -167,7 +305,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
             @Override
             public void onShow(DialogInterface d) {
                 ImageView image = (ImageView) dialog.findViewById(R.id.correct_ans);
-                Bitmap icon = BitmapFactory.decodeResource(QuestionActivity.this.getResources(),
+                Bitmap icon = BitmapFactory.decodeResource(QuestionmathActivity.this.getResources(),
                         R.drawable.correct_ans);
                 float imageWidthInPX = (float)image.getWidth();
 
@@ -201,7 +339,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
             @Override
             public void onShow(DialogInterface d) {
                 ImageView image = (ImageView) dialog.findViewById(R.id.wrong_ans);
-                Bitmap icon = BitmapFactory.decodeResource(QuestionActivity.this.getResources(),
+                Bitmap icon = BitmapFactory.decodeResource(QuestionmathActivity.this.getResources(),
                         R.drawable.wrong_ans);
                 float imageWidthInPX = (float)image.getWidth();
 
@@ -213,160 +351,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
 
     }
 
-    private void setTitle() {
-        Random rnd = new Random();
-        int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
-        tvTitle.setBackgroundColor(color);
-
-        number++;
-        String txtNumber = String.format("%02d", number);
-        tvTitle.setText(txtNumber);
-
-    }
-
-    private void setQuestion() {
-
-        buttons = new ArrayList<Button>(buttonId.length);
-        for (int id : buttonId) {
-            final Button button = (Button) findViewById(id);
-            button.setOnClickListener(btnClick);
-            buttons.add(button);
-        }
-
-        tvQuestion.setText(question);
-
-        for (int i = 0; i < buttonId.length; i++) {
-            buttons.get(i).setText(choices[i]);
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                buttons.get(i).setBackground(getResources().getDrawable(R.drawable.rounded_corner_choice));
-                buttons.get(i).setTextColor(0xFFFFFFFF);
-                buttons.get(i).setEnabled(true);
-            }
-        }
-    }
-
-    private void getQuestion() {
-        try {
-
-            JSONObject obj = new JSONObject(loadJSONFromAsset());
-            json_questions = obj.getJSONArray("questions");
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        randomQuestion();
-        shuffleChoices(choices);
-    }
-
-    private void randomQuestion() {
-//        int randomIndex = new Random().nextInt(length);
-
-        int randomIndex = randomIndex();
-        try {
-
-            JSONObject randomQuestion = json_questions.getJSONObject(randomIndex);
-            question = randomQuestion.getString("question");
-
-            JSONArray json_choices = randomQuestion.getJSONArray("choices");
-            choices = new String[json_choices.length()];
-
-            for (int i = 0; i < json_choices.length(); i++) {
-                JSONObject choice = json_choices.getJSONObject(i);
-                choices[i] = choice.getString("choice");
-                if (choice.getString("isTrue").equals("true")) {
-                    correct_ans = choice.getString("choice");
-                }
-            }
-
-        } catch (JSONException e) {
-
-            e.printStackTrace();
-
-        }
-
-    }
-
-    private int randomIndex() {
-        Random rand = new Random();
-        int index = rand.nextInt(json_questions.length());
-
-        while (list.contains(index)) {
-            index = rand.nextInt(json_questions.length());
-        }
-
-        list.add(index);
-
-        return index;
-    }
-
-    private int checkAnswer(String ans) {
-
-        if (correct_ans.equals(ans)) {
-//            Toast.makeText(QuestionActivity.this,
-//                    "You're right!",
-//                    Toast.LENGTH_SHORT).show();
-            correct1.start();
-            correctDialog();
-//            setTitle();
-//            getQuestion();
-//            setQuestion();
-//            getWindow().getDecorView().findViewById(android.R.id.content).invalidate();
-            return 1;
-
-        } else {
-            v.vibrate(200);
-            wrong2.start();
-            wrongDialog();
-//            Toast.makeText(QuestionActivity.this,
-//                    "You're wrong, try again",
-//                    Toast.LENGTH_SHORT).show();
-            return 0;
-        }
-
-    }
-
-    @TargetApi(21)
-    private void shuffleChoices(String[] chs) {
-        Random rnd = ThreadLocalRandom.current();
-        for (int i = chs.length - 1; i > 0; i--) {
-            int index = rnd.nextInt(i + 1);
-            // Simple swap
-            String a = chs[index];
-            chs[index] = chs[i];
-            chs[i] = a;
-        }
-    }
-
-    private String loadJSONFromAsset() {
-        String json = null;
-
-        try {
-
-            InputStream is = QuestionActivity.this.getAssets().open("questions.json");
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, "UTF-8");
-
-        } catch (IOException ex) {
-
-            ex.printStackTrace();
-            return null;
-        }
-
-        return json;
-
-    }
-
     @Override
-    public void onClick(View v) {
-
-    }
-
-        @Override
     public void onBackPressed() {
         if (doubleBackToExitPressedOnce) {
             super.onBackPressed();
