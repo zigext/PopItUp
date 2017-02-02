@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-public class BridgeActivity extends AppCompatActivity implements View.OnClickListener {
+public class CatchActivity extends AppCompatActivity implements View.OnClickListener {
 
     Intent intent;
     ImageButton btnStart;
@@ -22,15 +22,15 @@ public class BridgeActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bridge);
-
-        SharedPreferences prefs = this.getSharedPreferences("dummy", Context.MODE_PRIVATE);;
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putBoolean("mission4", true);
-        editor.apply();
+        setContentView(R.layout.activity_catch);
 
         btnStart = (ImageButton) findViewById(R.id.btnStart);
         btnStart.setOnClickListener(this);
+
+        SharedPreferences prefs = this.getSharedPreferences("dummy", Context.MODE_PRIVATE);;
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean("mission1", true);
+        editor.apply();
 
     }
 
@@ -44,7 +44,7 @@ public class BridgeActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v) {
         if (v == btnStart) {
             PackageManager managerclock = getPackageManager();
-            intent = managerclock.getLaunchIntentForPackage("com.PopItUp.BridgeGame");
+            intent = managerclock.getLaunchIntentForPackage("com.PopItUp.CatchGame");
             intent.addCategory(Intent.CATEGORY_LAUNCHER);
             startActivity(intent);
         }

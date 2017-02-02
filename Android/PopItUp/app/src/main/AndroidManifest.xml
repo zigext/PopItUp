@@ -51,7 +51,8 @@
             android:screenOrientation="portrait" />
         <activity android:name=".Question2Activity" />
         <activity android:name=".BridgeActivity" />
-        <activity android:name=".QuestionmathActivity"></activity>
+        <activity android:name=".QuestionmathActivity" />
+        <activity android:name=".CatchActivity"></activity>
     </application>
 
 </manifest>

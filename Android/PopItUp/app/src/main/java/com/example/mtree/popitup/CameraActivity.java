@@ -1,5 +1,7 @@
 package com.example.mtree.popitup;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -42,6 +44,11 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void initInstance() {
+
+        SharedPreferences prefs = this.getSharedPreferences("dummy", Context.MODE_PRIVATE);;
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean("mission6", true);
+        editor.apply();
 
         layerBtnPhoto = (LinearLayout) findViewById(R.id.layerBtnPhoto);
         layerPhoto = (LinearLayout) findViewById(R.id.layerPhoto);

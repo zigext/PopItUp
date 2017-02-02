@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -88,6 +89,12 @@ public class QuestionmathActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void initInstance() {
+
+        SharedPreferences prefs = this.getSharedPreferences("dummy", Context.MODE_PRIVATE);;
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean("mission5", true);
+        editor.apply();
+
         tvQuestion = (TextView) findViewById(R.id.tvQuestion);
         tvTitle = (TextView) findViewById(R.id.tvTitle);
 
@@ -254,7 +261,6 @@ public class QuestionmathActivity extends AppCompatActivity implements View.OnCl
             //                    Toast.LENGTH_SHORT).show();
             return 0;
         }
-
     }
 
     @Override

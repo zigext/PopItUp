@@ -4,7 +4,8 @@ import android.annotation.TargetApi;
         import android.content.Context;
         import android.content.DialogInterface;
         import android.content.Intent;
-        import android.graphics.Bitmap;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
         import android.graphics.BitmapFactory;
         import android.graphics.Color;
 import android.media.MediaPlayer;
@@ -81,6 +82,12 @@ public class Question2Activity extends AppCompatActivity implements View.OnClick
     }
 
     private void initInstance() {
+
+        SharedPreferences prefs = this.getSharedPreferences("dummy", Context.MODE_PRIVATE);;
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean("mission3", true);
+        editor.apply();
+
         tvQuestion = (TextView) findViewById(R.id.tvQuestion);
         tvTitle = (TextView) findViewById(R.id.tvTitle);
 

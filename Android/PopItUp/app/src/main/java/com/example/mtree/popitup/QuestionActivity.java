@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -82,6 +83,11 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void initInstance() {
+        SharedPreferences prefs = this.getSharedPreferences("dummy", Context.MODE_PRIVATE);;
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean("mission2", true);
+        editor.apply();
+
         tvQuestion = (TextView) findViewById(R.id.tvQuestion);
         tvTitle = (TextView) findViewById(R.id.tvTitle);
 
@@ -233,6 +239,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
             buttons.add(button);
         }
 
+
         tvQuestion.setText(question);
 
         for (int i = 0; i < buttonId.length; i++) {
@@ -366,7 +373,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
 
     }
 
-        @Override
+    @Override
     public void onBackPressed() {
         if (doubleBackToExitPressedOnce) {
             super.onBackPressed();

@@ -1,194 +1,105 @@
 {
   "questions": [
     {
-      "question": "กล้วยมีสีอะไร?",
+      "question": "วานร แปลว่าอะไร?",
       "choices": [
-        {"choice" : "yellow", "isTrue": "true"},
-        {"choice" : "red", "isTrue": "false" },
-        {"choice" : "blue", "isTrue": "false" },
-        {"choice" : "green", "isTrue": "false" }
+        {"choice" : "ลิง", "isTrue": "true"},
+        {"choice" : "นก", "isTrue": "false" },
+        {"choice" : "แมว", "isTrue": "false" },
+        {"choice" : "หมี", "isTrue": "false" }
       ]
 
     },
     {
-      "question": "1+1+0 = ?",
+      "question": "Red + Blue = ?",
       "choices": [
-        {"choice" : "2", "isTrue": "true"},
-        {"choice" : "3", "isTrue": "false" },
-        {"choice" : "11", "isTrue": "false" },
-        {"choice" : "0", "isTrue": "false" }
+        {"choice" : "Purple", "isTrue": "true"},
+        {"choice" : "Redblue", "isTrue": "false" },
+        {"choice" : "Orange", "isTrue": "false" },
+        {"choice" : "Green", "isTrue": "false" }
       ]
 
     },
     {
-      "question": "ปีนี้ปีอะไร?",
+      "question": "ขอใดไม่ใช่อาหาร?",
       "choices": [
-        {"choice" : "2560", "isTrue": "true"},
-        {"choice" : "2559", "isTrue": "false" },
-        {"choice" : "2015", "isTrue": "false" },
-        {"choice" : "2016", "isTrue": "false" }
+        {"choice" : "Table  ", "isTrue": "true"},
+        {"choice" : "Cake", "isTrue": "false" },
+        {"choice" : "Milk", "isTrue": "false" },
+        {"choice" : "Steak", "isTrue": "false" }
       ]
 
     },
     {
-      "question": "12 คือ?",
+      "question": "ข้อใดคือเมืองหลวงของไทย?",
       "choices": [
-        {"choice" : "twelve", "isTrue": "true"},
-        {"choice" : "ten", "isTrue": "false" },
-        {"choice" : "eleven", "isTrue": "false" },
-        {"choice" : "twenty", "isTrue": "false" }
+        {"choice" : "กรุงเทพ", "isTrue": "true"},
+        {"choice" : "เชียงใหม่", "isTrue": "false" },
+        {"choice" : "ภูเก็ต", "isTrue": "false" },
+        {"choice" : "เชียงราย", "isTrue": "false" }
       ]
 
     },
     {
-      "question": "แอพนี้ชื่ออะไร?",
+      "question": "H I J K ...",
       "choices": [
-        {"choice" : "Pop It Up", "isTrue": "true"},
-        {"choice" : "Pop Pop Pop", "isTrue": "false" },
-        {"choice" : "Hello Book", "isTrue": "false" },
-        {"choice" : "funny book", "isTrue": "false" }
+        {"choice" : "L", "isTrue": "true"},
+        {"choice" : "F", "isTrue": "false" },
+        {"choice" : "M", "isTrue": "false" },
+        {"choice" : "N", "isTrue": "false" }
       ]
 
     },
     {
-      "question": "1 2 3 4 ...",
+      "question": "1 สัปดาห์มีกี่วัน?",
+      "choices": [
+        {"choice" : "7", "isTrue": "true"},
+        {"choice" : "8", "isTrue": "false" },
+        {"choice" : "5", "isTrue": "false" },
+        {"choice" : "6", "isTrue": "false" }
+      ]
+
+    },
+    {
+      "question": "(2*3) - 1 = ?",
       "choices": [
         {"choice" : "5", "isTrue": "true"},
-        {"choice" : "6", "isTrue": "false" },
-        {"choice" : "7", "isTrue": "false" },
-        {"choice" : "8", "isTrue": "false" }
-      ]
-
-    },
-    {
-      "question": "what is cat?",
-      "choices": [
-        {"choice" : "แมว", "isTrue": "true"},
-        {"choice" : "หมา", "isTrue": "false" },
-        {"choice" : "คิตตี้", "isTrue": "false" },
-        {"choice" : "ปลา", "isTrue": "false" }
-      ]
-
-    },
-    {
-      "question": "Cow แปลว่าอะไร?",
-      "choices": [
-        {"choice" : "วัว", "isTrue": "true"},
-        {"choice" : "แมว", "isTrue": "false" },
-        {"choice" : "ช้าง", "isTrue": "false" },
-        {"choice" : "นม", "isTrue": "false" }
-      ]
-
-    },
-    {
-      "question": "แพนด้าชอบกินอะไร?",
-      "choices": [
-        {"choice" : "ใบไผ่", "isTrue": "true"},
-        {"choice" : "ใบไม้", "isTrue": "false" },
-        {"choice" : "ใบเผือก", "isTrue": "false" },
-        {"choice" : "ใบบัว", "isTrue": "false" }
-      ]
-
-    },
-    {
-      "question": "มดมีกี่ขา?",
-      "choices": [
-        {"choice" : "6", "isTrue": "true"},
         {"choice" : "4", "isTrue": "false" },
-        {"choice" : "2", "isTrue": "false" },
-        {"choice" : "8", "isTrue": "false" }
+        {"choice" : "6", "isTrue": "false" },
+        {"choice" : "7", "isTrue": "false" }
       ]
 
     },
     {
-      "question": "A B C ...",
+      "question": "ข้อใดหมายถึงโรงเรียน?",
       "choices": [
-        {"choice" : "E", "isTrue": "false"},
-        {"choice" : "D", "isTrue": "true" },
-        {"choice" : "I", "isTrue": "false" },
-        {"choice" : "G", "isTrue": "false" }
+        {"choice" : "School", "isTrue": "true"},
+        {"choice" : "House", "isTrue": "false" },
+        {"choice" : "Home", "isTrue": "false" },
+        {"choice" : "Library", "isTrue": "false" }
       ]
+
     },
     {
-      "question": "1+2+3+4 = ?",
+      "question": "ปลาหายใจในน้ำได้เพราะอะไร?",
       "choices": [
-        {"choice" : "15", "isTrue": "false"},
-        {"choice" : "8", "isTrue": "false" },
-        {"choice" : "12", "isTrue": "false" },
-        {"choice" : "10", "isTrue": "true" }
+        {"choice" : "มีเหงือก", "isTrue": "true"},
+        {"choice" : "มีเกล็ด", "isTrue": "false" },
+        {"choice" : "มีจมูก", "isTrue": "false" },
+        {"choice" : "มีปอด", "isTrue": "false" }
       ]
+
     },
     {
-      "question": "ลูกเต๋า 1 ลูก มีกี่หน้า?",
+      "question": "ไอน้ำมีสถานะอะไร?",
       "choices": [
-        {"choice" : "2", "isTrue": "false"},
-        {"choice" : "8", "isTrue": "false" },
-        {"choice" : "4", "isTrue": "false" },
-        {"choice" : "6", "isTrue": "true" }
+        {"choice" : "ก๊าซ", "isTrue": "true"},
+        {"choice" : "ของไหล", "isTrue": "false" },
+        {"choice" : "ของเหลว", "isTrue": "false" },
+        {"choice" : "ของแข็ง", "isTrue": "false" }
       ]
-    },
-    {
-      "question": "ลูกเต๋า 6 หน้ามีจุดรวมกันกี่จุด?",
-      "choices": [
-        {"choice" : "12", "isTrue": "false"},
-        {"choice" : "36", "isTrue": "false" },
-        {"choice" : "6", "isTrue": "false" },
-        {"choice" : "21", "isTrue": "true" }
-      ]
-    },
-    {
-      "question": "1 ปี มีวันที่ 8 กี่วัน?",
-      "choices": [
-        {"choice" : "16", "isTrue": "false"},
-        {"choice" : "แล้วแต่ปี", "isTrue": "false" },
-        {"choice" : "8", "isTrue": "false" },
-        {"choice" : "12", "isTrue": "true" }
-      ]
-    },
-    {
-      "question": "มีเงิน 15 บาท ซื้อขนมไป 6 บาท เหลือเงินกี่บาท?",
-      "choices": [
-        {"choice" : "4", "isTrue": "false"},
-        {"choice" : "10", "isTrue": "false" },
-        {"choice" : "21", "isTrue": "false" },
-        {"choice" : "9", "isTrue": "true" }
-      ]
-    },
-    {
-      "question": "เวลาทุ่มครึ่ง เข็มยาวชี่ที่เลขอะไร?",
-      "choices": [
-        {"choice" : "7", "isTrue": "false"},
-        {"choice" : "30", "isTrue": "false" },
-        {"choice" : "12", "isTrue": "false" },
-        {"choice" : "6", "isTrue": "true" }
-      ]
-    },
-    {
-      "question": "ธงชาติไทยมีกี่สี?",
-      "choices": [
-        {"choice" : "4", "isTrue": "false"},
-        {"choice" : "2", "isTrue": "false" },
-        {"choice" : "5", "isTrue": "false" },
-        {"choice" : "3", "isTrue": "true" }
-      ]
-    },
-    {
-      "question": "ปิกาจู มีกี่หาง?",
-      "choices": [
-        {"choice" : "ไม่มีหาง", "isTrue": "false"},
-        {"choice" : "9", "isTrue": "false" },
-        {"choice" : "2", "isTrue": "false" },
-        {"choice" : "1", "isTrue": "true" }
-      ]
-    },
-    {
-      "question": "ช้าง 1 ตัวมี 2 งา ช้าง 3 ตัว มีงวงช้างกี่งวง?",
-      "choices": [
-        {"choice" : "9", "isTrue": "false"},
-        {"choice" : "2", "isTrue": "false" },
-        {"choice" : "6", "isTrue": "false" },
-        {"choice" : "3", "isTrue": "true" }
-      ]
+
     }
+    
   ]
 }
