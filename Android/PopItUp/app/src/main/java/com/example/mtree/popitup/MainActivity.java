@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
     public String result;
 
     private ImageButton btnStart;
+    private Button btnReset;
     private MediaPlayer welcome;
 
     private List<Button> missions;
@@ -51,15 +52,12 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
     SharedPreferences prefs;
     private Boolean[] value = new Boolean[6];
 
-    private Intent intent;
     boolean doubleBackToExitPressedOnce = false;
 
     private GoogleApiClient client;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -67,6 +65,8 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
         welcome.start();
 
         btnStart = (ImageButton) findViewById(R.id.btnStart);
+        btnReset = (Button) findViewById(R.id.btnReset);
+//        btnReset.setOnClickListener(this);
 
         prefs = this.getSharedPreferences("dummy", Context.MODE_PRIVATE);
 
@@ -75,12 +75,10 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
         getMission();
 
         getWindow().getDecorView().findViewById(android.R.id.content).invalidate();
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
-    private void resetPrefs() {
+    public void resetPrefs() {
         for (int i = 0; i < value.length; i++) {
             value[i] = false;
         }
@@ -153,15 +151,50 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
     };
 
     @Override
-    public void onClick(View v) {    }
+    public void onClick(View v) {
+
+    }
+
+    public void rstPrefs(View view) {
+        if (value[0] || value[1] || value[2] || value[3] || value[4] || value[5] ){
+            new AlertDialog.Builder(MainActivity.this)
+                    .setMessage("ต้องการรีเซ็ตมิสชั่นไหม?")
+                    .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            resetPrefs();
+                            setContentView(R.layout.activity_main);
+                            getPrefs();
+                            getMission();
+
+                            new AlertDialog.Builder(MainActivity.this)
+                                    .setMessage("รีเซ็ตเรียบร้อยแล้ว")
+                                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            // continue with delete
+                                        }
+                                    })
+                                    .setIcon(android.R.drawable.ic_dialog_alert)
+                                    .show();
+                        }
+                    })
+                    .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // do nothing
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+        }
+    }
 
     @Override
     public void onPause() {
         super.onPause();
-        mScannerView.stopCamera();           // Stop camera on pause
+        if (mScannerView != null) {
+            mScannerView.stopCamera();           // Stop camera on pause
+        }
     }
 
-    //
     @Override
     public void onResume() {
         super.onResume();
@@ -170,11 +203,6 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
         getMission();
 //        mScannerView.startCamera();
     }
-
-//    public void resumeCamera() {
-//        // If you would like to resume scanning, call this method below:
-//        mScannerView.startCamera();
-//    }
 
     public void QrScanner(View view) {
         mScannerView = new ZXingScannerView(this);   // Programmatically initialize the scanner view
@@ -243,7 +271,6 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
 //        Toast.makeText(MainActivity.this, strCode, Toast.LENGTH_LONG).show();
 //        Log.d("qrtest", strCode);
         switch (strCode) {
-
             case ("Pop It Up"):
                 Toast.makeText(MainActivity.this, gameName("Pop It Up"), Toast.LENGTH_SHORT);
                 break;
@@ -259,9 +286,7 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
                     intent = new Intent(MainActivity.this, QuestionActivity.class);
                     intent.putExtra("code", strCode);
                     startActivity(intent);
-                } else {
-                    showError();
-                }
+                } else {showError();}
                 break;
 
             case ("code002"): //question2    mission3
@@ -269,9 +294,7 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
                     intent = new Intent(MainActivity.this, Question2Activity.class);
                     intent.putExtra("code", strCode);
                     startActivity(intent);
-                } else {
-                    showError();
-                }
+                } else {showError();}
                 break;
 
             case ("bridge"): //bridge game    mission4
@@ -279,9 +302,7 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
                     intent = new Intent(MainActivity.this, BridgeActivity.class);
                     intent.putExtra("code", strCode);
                     startActivity(intent);
-                } else {
-                    showError();
-                }
+                } else {showError();}
                 break;
 
             case ("code003"): //maths game    mission5
@@ -289,9 +310,7 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
                     intent = new Intent(MainActivity.this, QuestionmathActivity.class);
                     intent.putExtra("code", strCode);
                     startActivity(intent);
-                } else {
-                    showError();
-                }
+                } else {showError();}
                 break;
 
             case ("code004"): //find things game    mission6
@@ -299,9 +318,7 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
                     intent = new Intent(MainActivity.this, CameraActivity.class);
                     intent.putExtra("code", strCode);
                     startActivity(intent);
-                } else {
-                    showError();
-                }
+                } else {showError();}
                 break;
 
             default:
@@ -320,7 +337,6 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .show();
     }
-
 
     public Action getIndexApiAction() {
         Thing object = new Thing.Builder()
@@ -360,6 +376,9 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
         }
 
         setContentView(R.layout.activity_main);
+        getPrefs();
+        getMission();
+
         this.doubleBackToExitPressedOnce = true;
         Toast.makeText(this, "Please click BACK again to quit.", Toast.LENGTH_SHORT).show();
 

@@ -9,7 +9,7 @@ tools:context="com.example.mtree.popitup.QuestionmathActivity">
 <ImageView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:src="@mipmap/question_bg"
+    android:src="@mipmap/game_5"
     android:scaleType="centerCrop"/>
 
 <LinearLayout

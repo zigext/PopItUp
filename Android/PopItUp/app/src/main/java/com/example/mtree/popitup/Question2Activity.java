@@ -78,11 +78,9 @@ public class Question2Activity extends AppCompatActivity implements View.OnClick
         code = intent.getStringExtra("code");
 
         initInstance();
-
     }
 
     private void initInstance() {
-
         SharedPreferences prefs = this.getSharedPreferences("dummy", Context.MODE_PRIVATE);;
         SharedPreferences.Editor editor = prefs.edit();
         editor.putBoolean("mission3", true);
@@ -104,7 +102,6 @@ public class Question2Activity extends AppCompatActivity implements View.OnClick
         setTitle();
         getQuestion();
         setQuestion();
-
     }
 
     View.OnClickListener btnClick = new View.OnClickListener() {
@@ -148,7 +145,7 @@ public class Question2Activity extends AppCompatActivity implements View.OnClick
 
                 else {
                     new AlertDialog.Builder(Question2Activity.this)
-                            .setMessage("เอาชนะปลาหมึกได้แล้ว ไปลุยกันต่อเลย!")
+                            .setMessage(getString(R.string.end_question2))
                             .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
                                     intent = new Intent(Question2Activity.this, MainActivity.class);
@@ -310,27 +307,15 @@ public class Question2Activity extends AppCompatActivity implements View.OnClick
 
     private int checkAnswer(String ans) {
         if (correct_ans.equals(ans)) {
-//            Toast.makeText(QuestionActivity.this,
-//                    "You're right!",
-//                    Toast.LENGTH_SHORT).show();
             correct1.start();
             correctDialog();
-//            setTitle();
-//            getQuestion();
-//            setQuestion();
-//            getWindow().getDecorView().findViewById(android.R.id.content).invalidate();
             return 1;
-
         } else {
             v.vibrate(200);
             wrong1.start();
             wrongDialog();
-//            Toast.makeText(QuestionActivity.this,
-//                    "You're wrong, try again",
-//                    Toast.LENGTH_SHORT).show();
             return 0;
         }
-
     }
 
     @TargetApi(21)
@@ -371,7 +356,6 @@ public class Question2Activity extends AppCompatActivity implements View.OnClick
     public void onClick(View v) {
 
     }
-
 
     @Override
     public void onBackPressed() {

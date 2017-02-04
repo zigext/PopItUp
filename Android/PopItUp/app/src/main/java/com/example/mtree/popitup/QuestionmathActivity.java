@@ -62,7 +62,7 @@ public class QuestionmathActivity extends AppCompatActivity implements View.OnCl
     private Intent intent;
     boolean doubleBackToExitPressedOnce = false;
 
-    private MediaPlayer correct1;
+    private MediaPlayer correct2;
     private MediaPlayer wrong2;
 
     private int operand1;
@@ -75,7 +75,6 @@ public class QuestionmathActivity extends AppCompatActivity implements View.OnCl
     private int correct_ans;
     private String[] choices = new String[4];
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,11 +84,9 @@ public class QuestionmathActivity extends AppCompatActivity implements View.OnCl
         code = intent.getStringExtra("code");
 
         initInstance();
-
     }
 
     private void initInstance() {
-
         SharedPreferences prefs = this.getSharedPreferences("dummy", Context.MODE_PRIVATE);;
         SharedPreferences.Editor editor = prefs.edit();
         editor.putBoolean("mission5", true);
@@ -100,7 +97,7 @@ public class QuestionmathActivity extends AppCompatActivity implements View.OnCl
 
         v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
-        correct1 = MediaPlayer.create(this, R.raw.correct1);
+        correct2 = MediaPlayer.create(this, R.raw.correct2);
         wrong2 = MediaPlayer.create(this, R.raw.wrong2);
 
         score = 0;
@@ -112,7 +109,6 @@ public class QuestionmathActivity extends AppCompatActivity implements View.OnCl
         randomQuestion();
         getChoices();
         setChoices();
-
     }
 
     View.OnClickListener btnClick = new View.OnClickListener() {
@@ -244,21 +240,13 @@ public class QuestionmathActivity extends AppCompatActivity implements View.OnCl
             //            Toast.makeText(QuestionActivity.this,
             //                    "You're right!",
             //                    Toast.LENGTH_SHORT).show();
-            correct1.start();
+            correct2.start();
             correctDialog();
-            //            setTitle();
-            //            getQuestion();
-            //            setQuestion();
-            //            getWindow().getDecorView().findViewById(android.R.id.content).invalidate();
             return 1;
-
         } else {
             v.vibrate(200);
             wrong2.start();
             wrongDialog();
-            //            Toast.makeText(QuestionActivity.this,
-            //                    "You're wrong, try again",
-            //                    Toast.LENGTH_SHORT).show();
             return 0;
         }
     }
@@ -286,7 +274,7 @@ public class QuestionmathActivity extends AppCompatActivity implements View.OnCl
 
                 else {
                     new AlertDialog.Builder(QuestionmathActivity.this)
-                            .setMessage("เก่งมาก เจ้าเซียนคณิตศาสตร์จริงๆ!")
+                            .setMessage(getString(R.string.end_maths))
                             .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
                                     intent = new Intent(QuestionmathActivity.this, MainActivity.class);

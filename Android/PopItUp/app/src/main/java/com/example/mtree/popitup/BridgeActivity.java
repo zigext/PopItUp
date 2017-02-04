@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.media.MediaPlayer;
 import android.os.Handler;
 import android.support.multidex.MultiDex;
 import android.support.v7.app.AppCompatActivity;
@@ -17,12 +18,17 @@ public class BridgeActivity extends AppCompatActivity implements View.OnClickLis
     Intent intent;
     ImageButton btnStart;
 
+    private MediaPlayer bridge;
+
     boolean doubleBackToExitPressedOnce = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bridge);
+
+        bridge = MediaPlayer.create(this, R.raw.bridge);
+        bridge.start();
 
         SharedPreferences prefs = this.getSharedPreferences("dummy", Context.MODE_PRIVATE);;
         SharedPreferences.Editor editor = prefs.edit();
@@ -31,7 +37,6 @@ public class BridgeActivity extends AppCompatActivity implements View.OnClickLis
 
         btnStart = (ImageButton) findViewById(R.id.btnStart);
         btnStart.setOnClickListener(this);
-
     }
 
     @Override

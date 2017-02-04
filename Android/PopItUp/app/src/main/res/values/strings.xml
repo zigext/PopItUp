@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">PopItUp</string>
+    <string name="end_maths">เปิดทางเข้าถ้ำได้แล้ว เจ้าเซียนคณิตศาสตร์จริงๆ!</string>
+    <string name="end_question">เอาชนะปีศาจทะเลยักษ์ได้แล้ว ไปสร้างถนนกันต่อเลย!</string>
+    <string name="end_question2">เอาชนะปลาหมึกได้แล้ว ไปลุยกันต่อเลย!</string>
+    <string name="end_findthings">ดอกไม้นี่ใช้ได้เลยนี่นา!</string>
 </resources>

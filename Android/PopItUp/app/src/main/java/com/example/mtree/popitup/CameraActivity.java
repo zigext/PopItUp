@@ -44,7 +44,6 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void initInstance() {
-
         SharedPreferences prefs = this.getSharedPreferences("dummy", Context.MODE_PRIVATE);;
         SharedPreferences.Editor editor = prefs.edit();
         editor.putBoolean("mission6", true);
@@ -65,12 +64,10 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
 
         btnPhoto = (ImageButton) this.findViewById(R.id.btnPhoto);
         btnPhoto.setOnClickListener(this);
-
     }
 
     @Override
     public void onClick(View v) {
-
         if (v == btnPhoto) {
             cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
             startActivityForResult(cameraIntent, CAMERA_REQUEST);
@@ -89,7 +86,7 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
         }
 
         if (v == btnAccept){
-            Toast.makeText(CameraActivity.this, "ดอกไม้นี่ใช้ได้เลยนี่นา!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(CameraActivity.this, getString(R.string.end_findthings), Toast.LENGTH_SHORT).show();
 
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
@@ -99,7 +96,6 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
                 }
             }, 2000);
         }
-
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

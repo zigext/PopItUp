@@ -31,7 +31,6 @@ public class CatchActivity extends AppCompatActivity implements View.OnClickList
         SharedPreferences.Editor editor = prefs.edit();
         editor.putBoolean("mission1", true);
         editor.apply();
-
     }
 
     @Override

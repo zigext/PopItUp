@@ -104,7 +104,6 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
         setTitle();
         getQuestion();
         setQuestion();
-
     }
 
     View.OnClickListener btnClick = new View.OnClickListener() {
@@ -148,7 +147,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
 
                 else {
                     new AlertDialog.Builder(QuestionActivity.this)
-                            .setMessage("เอาชนะปูยักษ์ได้แล้ว ไปสร้างถนนกันต่อเลย!")
+                            .setMessage(getString(R.string.end_question))
                             .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
                                     intent = new Intent(QuestionActivity.this, MainActivity.class);
@@ -239,7 +238,6 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
             buttons.add(button);
         }
 
-
         tvQuestion.setText(question);
 
         for (int i = 0; i < buttonId.length; i++) {
@@ -311,24 +309,14 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
     private int checkAnswer(String ans) {
 
         if (correct_ans.equals(ans)) {
-//            Toast.makeText(QuestionActivity.this,
-//                    "You're right!",
-//                    Toast.LENGTH_SHORT).show();
             correct1.start();
             correctDialog();
-//            setTitle();
-//            getQuestion();
-//            setQuestion();
-//            getWindow().getDecorView().findViewById(android.R.id.content).invalidate();
             return 1;
 
         } else {
             v.vibrate(200);
             wrong2.start();
             wrongDialog();
-//            Toast.makeText(QuestionActivity.this,
-//                    "You're wrong, try again",
-//                    Toast.LENGTH_SHORT).show();
             return 0;
         }
 
