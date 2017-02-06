@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
@@ -17,6 +18,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.appindexing.Action;
@@ -27,6 +29,7 @@ import com.google.zxing.Result;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
@@ -44,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
 
     private ImageButton btnStart;
     private Button btnReset;
+    private TextView txtMission;
     private MediaPlayer welcome;
 
     private List<Button> missions;
@@ -60,6 +64,8 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        txtMission = (TextView) findViewById(R.id.txtMission);
 
         welcome = MediaPlayer.create(this, R.raw.welcome);
         welcome.start();
@@ -255,6 +261,7 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
     public String gameName(String code) {
         switch (code) {
             case ("Pop It Up"): return "Welcome to Pop It Up!";
+            case ("animation1"): return "ต้องการเข้าไปสู่โลกหนังสือนิทานหรือไม่?";
             case ("catch"): return "เกมรับหิน";
             case ("code001"): return "เกมตอบคำถาม";
             case ("code002"): return "เกมตอบคำถาม 2";
@@ -273,6 +280,12 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
         switch (strCode) {
             case ("Pop It Up"):
                 Toast.makeText(MainActivity.this, gameName("Pop It Up"), Toast.LENGTH_SHORT);
+                break;
+
+            case ("animation1"):
+                intent = new Intent(MainActivity.this, AnimationActivity.class);
+                intent.putExtra("code", strCode);
+                startActivity(intent);
                 break;
 
             case ("catch"): //catch game    mission1

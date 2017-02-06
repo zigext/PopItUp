@@ -21,7 +21,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="nosensor"
             android:windowSoftInputMode="stateHidden|adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,7 +39,7 @@
 
         <activity
             android:name=".QuestionActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="nosensor" />
         <activity
             android:name=".CorrectActivity"
             android:screenOrientation="portrait" />
@@ -48,11 +48,16 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".CameraActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name=".Question2Activity" />
-        <activity android:name=".BridgeActivity" />
-        <activity android:name=".QuestionmathActivity" />
-        <activity android:name=".CatchActivity"></activity>
+            android:screenOrientation="nosensor" />
+        <activity android:name=".Question2Activity"
+            android:screenOrientation="nosensor"/>
+        <activity android:name=".BridgeActivity"
+            android:screenOrientation="nosensor"/>
+        <activity android:name=".QuestionmathActivity"
+            android:screenOrientation="nosensor"/>
+        <activity android:name=".CatchActivity"
+            android:screenOrientation="nosensor"/>
+        <activity android:name=".AnimationActivity" />
     </application>
 
 </manifest>

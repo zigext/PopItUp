@@ -21,9 +21,9 @@
 
     },
     {
-      "question": "ขอใดไม่ใช่อาหาร?",
+      "question": "ข้อใดไม่ใช่อาหาร?",
       "choices": [
-        {"choice" : "Table  ", "isTrue": "true"},
+        {"choice" : "Table", "isTrue": "true"},
         {"choice" : "Cake", "isTrue": "false" },
         {"choice" : "Milk", "isTrue": "false" },
         {"choice" : "Steak", "isTrue": "false" }
@@ -61,7 +61,7 @@
 
     },
     {
-      "question": "(2*3) - 1 = ?",
+      "question": "(2 x 3) - 1 = ?",
       "choices": [
         {"choice" : "5", "isTrue": "true"},
         {"choice" : "4", "isTrue": "false" },
