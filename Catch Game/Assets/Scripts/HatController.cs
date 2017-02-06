@@ -13,6 +13,8 @@ public class HatController : MonoBehaviour {
 	private bool canControl;
 	public Renderer rend;
 
+
+
 	// Use this for initialization
 	void Start () {
 		//Dont forget to add your camera and HatSprite to HatController 
@@ -51,4 +53,6 @@ public class HatController : MonoBehaviour {
 	public void ToggleControl(bool toggle){
 		canControl = toggle;
 	}
+
+
 }

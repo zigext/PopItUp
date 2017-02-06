@@ -30,4 +30,9 @@ public class Score : MonoBehaviour {
 	void UpdateScore () {
 		scoreText.text = "Score:\n" + score;
 	}
+
+	public int GetScore () {
+		return score;
+
+	}
 }

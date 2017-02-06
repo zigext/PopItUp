@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class GameController : MonoBehaviour {
 
 	public Camera cam;
@@ -12,21 +13,25 @@ public class GameController : MonoBehaviour {
 	public float timeLeft;
 	public Text timerText;
 	public GameObject restartButton;
+	public GameObject backButton;
+	public GameObject confirmBack;
 	public GameObject gameOverText;
 	public GameObject startButton;
 	public GameObject splashScreen;
-	public HatController hatController;
+	public PlayerController playerController;
 
 	private float maxWidth;
 	private bool playing;
 	private float speed;
+	private bool gameOver;
 
 	// Use this for initialization
 	void Start () {
-		//Dont forget to add your camera and HatSprite to HatController 
+		//Dont forget to add your camera and Player to PlayerController 
 		if (cam == null) {
 			cam = Camera.main;
 		}
+		gameOver = false;
 		playing = false;
 		speed = 1.0f;
 		rend = stones[0].GetComponent<Renderer>();
@@ -67,27 +72,35 @@ public class GameController : MonoBehaviour {
 			if (timeLeft > 5)
 				yield return new WaitForSeconds (Random.Range (1.0f, 2.0f)); //wait 
 			else if (timeLeft <= 5) {
-				yield return new WaitForSeconds (Time.deltaTime * speed);
-				print (Time.deltaTime);
-				print ("speed = " + speed);
+				yield return new WaitForSeconds (Time.deltaTime * speed); //last 5 sec
+				//print (Time.deltaTime);
+				//print ("speed = " + speed);
 			}
 		}
+		gameOver = true;
+
 		yield return new WaitForSeconds (2.0f);
 		gameOverText.SetActive (true);
 		yield return new WaitForSeconds (2.0f);
 		restartButton.SetActive (true);
+		backButton.SetActive (true);
+		confirmBack.SetActive (true);
 	}
 
 
 	public void StartGame(){
 			splashScreen.SetActive (false);
 			startButton.SetActive (false);
-			hatController.ToggleControl (true); //user can move hat
+			playerController.ToggleControl (true); //user can move player
 		
 	}
 
 	void UpdateText(){
 		timerText.text = "Time Left:\n" + Mathf.RoundToInt (timeLeft);
+	}
+
+	public bool IsGameOver(){
+		return gameOver;
 	}
 		
 }
