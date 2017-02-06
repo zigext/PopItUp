@@ -15,7 +15,7 @@ public class AnimationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animation);
 
-        String path = "android.resource://" + getPackageName() + "/" + R.raw.sample;
+        String path = "android.resource://" + getPackageName() + "/" + R.raw.animate1;
 
         videoView = (VideoView) findViewById(R.id.videoView);
 

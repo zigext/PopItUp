@@ -1,5 +1,6 @@
 package com.example.mtree.popitup;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -10,6 +11,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Parcelable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -64,6 +66,9 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ActivityCompat.requestPermissions(MainActivity.this,
+                new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA},
+                1);
 
         txtMission = (TextView) findViewById(R.id.txtMission);
 
