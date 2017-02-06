@@ -28,7 +28,10 @@ public class StoneManager : MonoBehaviour {
 
 	public Text scoreText;
 	public GameObject restartButton;
+	public GameObject backButton;
+	public GameObject confirmQuit;
     public Material[] newMaterial;
+	public GUILayer gui;
 	
 
 	// Use this for initialization
@@ -37,22 +40,29 @@ public class StoneManager : MonoBehaviour {
 		for (int i = 0; i < transform.childCount; i++)
 			stones [i] = transform.GetChild (i).gameObject; //get each stone
 		stoneIndex = transform.childCount - 1;
-		
+		gui = Camera.main.GetComponent (typeof(GUILayer)) as GUILayer;
+
+
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		GUIElement element = gui.HitTest (Input.mousePosition);
 		if(Input.GetMouseButtonDown(0)) {
-			if (PlaceStone ()) {
-				SpawnStone ();
-				score++;
-				UpdateScore ();
-				print ("Click");
-			} else {
-				EndGame ();
-			}
+			if(element == null){
+			//if (Input.mousePosition.x >= 150 && Input.mousePosition.x <= 750) {
 
+				if (PlaceStone ()) {
+					SpawnStone ();
+					score++;
+					UpdateScore ();
+					print ("Click");
+				} else {
+					EndGame ();
+				}
+			//}
+			}
 		}
 		MoveStone ();
 		// move stack
@@ -80,7 +90,7 @@ public class StoneManager : MonoBehaviour {
         Renderer rend = fall.GetComponent<Renderer>();
         if (rend != null)
         {
-            rend.material = newMaterial[stoneIndex];
+            rend.material = newMaterial[stoneIndex]; //set material of the rubble
             print("Index = " + stoneIndex);
         }
         fall.AddComponent<Rigidbody>();
@@ -210,5 +220,15 @@ public class StoneManager : MonoBehaviour {
 	IEnumerator ButtonActive(){
 		yield return new WaitForSeconds (2.0f);
 		restartButton.SetActive(true);	
+		backButton.SetActive(true);	
+		confirmQuit.SetActive(true);	
 			}
+
+	public int GetScore(){
+		return score;
+	}
+
+	public bool IsGameOver(){
+		return gameOver;
+	}
 }
