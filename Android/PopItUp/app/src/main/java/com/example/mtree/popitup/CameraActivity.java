@@ -1,5 +1,7 @@
 package com.example.mtree.popitup;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -42,6 +44,10 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void initInstance() {
+        SharedPreferences prefs = this.getSharedPreferences("dummy", Context.MODE_PRIVATE);;
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean("mission6", true);
+        editor.apply();
 
         layerBtnPhoto = (LinearLayout) findViewById(R.id.layerBtnPhoto);
         layerPhoto = (LinearLayout) findViewById(R.id.layerPhoto);
@@ -58,12 +64,10 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
 
         btnPhoto = (ImageButton) this.findViewById(R.id.btnPhoto);
         btnPhoto.setOnClickListener(this);
-
     }
 
     @Override
     public void onClick(View v) {
-
         if (v == btnPhoto) {
             cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
             startActivityForResult(cameraIntent, CAMERA_REQUEST);
@@ -82,7 +86,7 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
         }
 
         if (v == btnAccept){
-            Toast.makeText(CameraActivity.this, "ดอกไม้นี่ใช้ได้เลยนี่นา!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(CameraActivity.this, getString(R.string.end_findthings), Toast.LENGTH_SHORT).show();
 
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
@@ -92,7 +96,6 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
                 }
             }, 2000);
         }
-
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
