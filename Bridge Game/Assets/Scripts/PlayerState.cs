@@ -17,12 +17,12 @@ public class PlayerState : MonoBehaviour {
 		GetScore ();
 	}
 
-	void OnTriggerEnter2D(){
-		GetScore();
-	}
 
-	void OnCollisionEnter2D(Collision2D collision){
-		GetScore ();
+	void OnMouseDown(){
+		if (Input.GetKey ("mouse 0")) {
+			print ("Box Clicked!");
+		}
+		GetScore();
 	}
 
 	void GetScore()
