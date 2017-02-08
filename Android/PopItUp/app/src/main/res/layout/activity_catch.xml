@@ -13,6 +13,8 @@
         android:scaleType="centerCrop"
         android:src="@mipmap/game_1"/>
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -35,6 +37,7 @@
                 android:src="@mipmap/logo_catch"/>
 
             <TextView
+                android:id="@+id/tvName"
                 android:layout_weight="3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -71,6 +74,19 @@
 
     </LinearLayout>
 
+    <ImageView
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="100dp"
+        android:src="@drawable/catch_01"/>
 
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/catch_02"/>
 
 </RelativeLayout>

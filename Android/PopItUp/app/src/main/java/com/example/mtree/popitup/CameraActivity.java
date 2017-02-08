@@ -2,6 +2,7 @@ package com.example.mtree.popitup;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.media.Image;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
     private ImageView imgView;
 
     private ImageButton btnPhoto;
+    private ImageView imgFlower;
     private LinearLayout layerBtnPhoto;
     private LinearLayout layerPhoto;
     private LinearLayout layerButton;
@@ -61,6 +63,7 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
         btnAccept.setOnClickListener(this);
 
         imgView = (ImageView)this.findViewById(R.id.imgView);
+        imgFlower = (ImageView) this.findViewById(R.id.imgFlower);
 
         btnPhoto = (ImageButton) this.findViewById(R.id.btnPhoto);
         btnPhoto.setOnClickListener(this);
@@ -105,6 +108,7 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
             layerBtnPhoto.setVisibility(View.GONE);
             layerPhoto.setVisibility(View.VISIBLE);
             layerButton.setVisibility(View.VISIBLE);
+            imgFlower.setVisibility(View.GONE);
 
             getWindow().getDecorView().findViewById(android.R.id.content).invalidate();
         }
