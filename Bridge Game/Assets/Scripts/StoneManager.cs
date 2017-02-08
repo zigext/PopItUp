@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using LitJson;
+using System.IO;
 
 public class StoneManager : MonoBehaviour {
 	private const float BOUNDS_SIZE = 3.5f;
@@ -22,6 +24,7 @@ public class StoneManager : MonoBehaviour {
 	private float secondaryPosition;
 	private bool isMovingOnX = true;
 	private bool gameOver = false;
+	private string jsonString;
 
 	private Vector3 desiredPosition;
 	private Vector3 lastStonePosition;
@@ -214,6 +217,7 @@ public class StoneManager : MonoBehaviour {
 		stones [stoneIndex].AddComponent<Rigidbody>(); //make the stone fall to ground
 
 		StartCoroutine (ButtonActive ());
+		WriteJson ();
 		
 	}
 
@@ -230,5 +234,19 @@ public class StoneManager : MonoBehaviour {
 
 	public bool IsGameOver(){
 		return gameOver;
+	}
+
+	void WriteJson(){
+		print (score);
+		if (gameOver) {
+			print ("Over");
+		}
+		//lastScoreObject = new LastScore(lastScore);
+		//scoreJson = JsonMapper(lastScoreObject);
+		//print(scoreJson);
+
+		jsonString = JsonUtility.ToJson (this);
+		print (jsonString);
+		//ile.WriteAllText (Application.dataPath + "/CatchScore.json", jsonString);
 	}
 }
