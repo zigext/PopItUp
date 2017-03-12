@@ -26,6 +26,10 @@ public class StoneManager : MonoBehaviour {
 	private bool gameOver = false;
 	private string jsonString;
 
+	private string jsonTest;
+	private PlayerState playerState;
+	public GameObject obj; //object that holds PlayerState
+
 	private Vector3 desiredPosition;
 	private Vector3 lastStonePosition;
 
@@ -52,6 +56,8 @@ public class StoneManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		GUIElement element = gui.HitTest (Input.mousePosition);
+
+
 		if(Input.GetMouseButtonDown(0)) {
 			if(element == null){
 			//if (Input.mousePosition.x >= 150 && Input.mousePosition.x <= 750) {
@@ -79,7 +85,7 @@ public class StoneManager : MonoBehaviour {
 		
 		stoneTransition += Time.deltaTime * stoneSpeed;
 
-		if(isMovingOnX)
+		if(isMovingOnX) //original is  stoneIndex].transform.localPosition = new Vector3 ( Mathf.Sin (stoneTransition) * BOUNDS_SIZE, score, secondaryPosition);
 			stones [stoneIndex].transform.localPosition = new Vector3 (Mathf.Sin (stoneTransition) * BOUNDS_SIZE, score, secondaryPosition); //Slide in x axis
 		else
 			stones [stoneIndex].transform.localPosition = new Vector3 (secondaryPosition, score, Mathf.Sin (stoneTransition) * BOUNDS_SIZE); //Slide in z axis
@@ -237,16 +243,10 @@ public class StoneManager : MonoBehaviour {
 	}
 
 	void WriteJson(){
-		print (score);
+		//print (score);
 		if (gameOver) {
 			print ("Over");
 		}
-		//lastScoreObject = new LastScore(lastScore);
-		//scoreJson = JsonMapper(lastScoreObject);
-		//print(scoreJson);
-
-		jsonString = JsonUtility.ToJson (this);
-		print (jsonString);
-		//ile.WriteAllText (Application.dataPath + "/CatchScore.json", jsonString);
+		playerState = obj.AddComponent<PlayerState>(); //the same as, class obj = new class
 	}
 }
