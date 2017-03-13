@@ -118,7 +118,7 @@
         android:layout_width="140dp"
         android:layout_height="150dp"
         android:layout_alignParentLeft="true"
-        android:layout_marginTop="235dp"
+        android:layout_marginTop="205dp"
         android:src="@drawable/question_01" />
 
 </RelativeLayout>

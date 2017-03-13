@@ -1,7 +1,45 @@
 <resources>
     <string name="app_name">PopItUp</string>
-    <string name="end_question">เอาชนะปีศาจทะเลยักษ์ได้แล้ว ไปสร้างลุยกันต่อเลย!</string>
-    <string name="end_question2">เอาชนะยักษ์ได้แล้ว ไปสร้างถนนกันต่อเลย!</string>
+    <string name="end_question">เอาชนะปีศาจทะเลยักษ์ได้แล้ว ไปลุยกันต่อเลย!</string>
+    <string name="end_question2">เอาชนะยักษ์ได้แล้ว ไปสร้างสะพานกันต่อเลย!</string>
     <string name="end_maths">เปิดทางเข้าถ้ำได้แล้ว เจ้าเซียนคณิตศาสตร์จริงๆ!</string>
     <string name="end_findthings">ดอกไม้นี่สวยใช้ได้เลยนี่นา!</string>
+
+    <string name="activity_bridge">เกมสร้างสะพาน</string>
+    <string name="activity_camera">หาสิ่งของไปให้พระราม</string>
+    <string name="activity_camera_things">ดอกไม้</string>
+    <string name="activity_catch">เกมรับหิน</string>
+    <string name="activity_main_reset">รีเซ็ต</string>
+
+    <string name="activity_question">เกมตอบคำถาม</string>
+    <string name="activity_question2">เกมตอบคำถาม 2</string>
+    <string name="activity_maths">เกมคิดเลข</string>
+    <string name="activity_things">เกมหาสิ่งของ</string>
+
+    <string name="mainActivity_reset">ต้องการรีเซ็ตหรือไม่?</string>
+    <string name="mainActivity_donereset">รีเซ็ตเรียบร้อย!</string>
+
+    <string name="yes">ใช่</string>
+    <string name="no">ไม่</string>
+    <string name="cancel">ยกเลิก</string>
+    <string name="close">ปิด</string>
+    <string name="play">เล่น</string>
+    <string name="next">ต่อไป</string>
+    <string name="try_again">ลองใหม่</string>
+
+    <string name="case_popitup">ยินดีต้อนรับเข้าสู่ ป๊อป อิท อัพ!</string>
+    <string name="case_animation1">ต้องการเข้าไปสู่โลกแห่งนิทานหรือไม่</string>
+    <string name="case_character_hanuman">มาทำความรู้จักหนุมานกันเถอะ</string>
+    <string name="character_naga">มาทำความรู้จักปีศาจทะเลกันเถอะ</string>
+    <string name="character_nilaphat">มาทำความรู้จักนิลพัทกันเถอะ</string>
+    <string name="character_ogre">มาทำความรู้จักยักษ์กันเถอะ</string>
+    <string name="character_sridaxrama">มาทำความรู้จักพระรามกับนางสีดากันเถอะ</string>
+
+    <string name="code_failed">โค้ดผิดพลาด</string>
+
+    <string name="pass_before">ต้องผ่านด่านก่อนหน้าก่อนนะ</string>
+    <string name="exit">กดอีกครั้งเพื่อออก</string>
+
+    <string name="tryagain">ว๊าาา แย่จัง ลองใหม่นะ</string>
+
 </resources>

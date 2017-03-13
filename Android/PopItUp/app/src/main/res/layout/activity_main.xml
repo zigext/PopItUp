@@ -184,8 +184,8 @@
         android:layout_alignParentBottom="true"
         android:layout_margin="10dp"
         android:background="@android:color/black"
-        android:text="RESET"
+        android:text="@string/activity_main_reset"
         android:onClick="rstPrefs"
-        android:textSize="15dp" />
+        android:textSize="25dp" />
 
 </RelativeLayout>

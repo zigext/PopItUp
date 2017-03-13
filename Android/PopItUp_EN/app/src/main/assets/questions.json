@@ -1,0 +1,194 @@
+{
+  "questions": [
+    {
+      "question": "What color does the sky appear to be when it rains?",
+      "choices": [
+        {"choice" : "Gray", "isTrue": "true"},
+        {"choice" : "Red", "isTrue": "false" },
+        {"choice" : "White", "isTrue": "false" },
+        {"choice" : "Blue", "isTrue": "false" }
+      ]
+
+    },
+    {
+      "question": "What farm animal gives us milk to drink?",
+      "choices": [
+        {"choice" : "Cow", "isTrue": "true"},
+        {"choice" : "Chicken", "isTrue": "false" },
+        {"choice" : "Chicken", "isTrue": "false" },
+        {"choice" : "Dog", "isTrue": "false" }
+      ]
+
+    },
+    {
+      "question": "What animal purrs and is known for chasing mice?",
+      "choices": [
+        {"choice" : "Cat", "isTrue": "true"},
+        {"choice" : "Kangaroo", "isTrue": "false" },
+        {"choice" : "Fish", "isTrue": "false" },
+        {"choice" : "Bird", "isTrue": "false" }
+      ]
+
+    },
+    {
+      "question": "5 + 5 = what?",
+      "choices": [
+        {"choice" : "10", "isTrue": "true"},
+        {"choice" : "12", "isTrue": "false" },
+        {"choice" : "9", "isTrue": "false" },
+        {"choice" : "15", "isTrue": "false" }
+      ]
+
+    },
+    {
+      "question": "What is edible?",
+      "choices": [
+        {"choice" : "Rice", "isTrue": "true"},
+        {"choice" : "Grass", "isTrue": "false" },
+        {"choice" : "Pen", "isTrue": "false" },
+        {"choice" : "Rubber", "isTrue": "false" }
+      ]
+
+    },
+    {
+      "question": "How many fingers do you have?",
+      "choices": [
+        {"choice" : "20", "isTrue": "true"},
+        {"choice" : "10", "isTrue": "false" },
+        {"choice" : "21", "isTrue": "false" },
+        {"choice" : "12", "isTrue": "false" }
+      ]
+
+    },
+    {
+      "question": "red + blue = ?",
+      "choices": [
+        {"choice" : "Purple", "isTrue": "true"},
+        {"choice" : "Orange", "isTrue": "false" },
+        {"choice" : "White", "isTrue": "false" },
+        {"choice" : "Black", "isTrue": "false" }
+      ]
+
+    },
+    {
+      "question": "What is stationary?",
+      "choices": [
+        {"choice" : "Pencil", "isTrue": "true"},
+        {"choice" : "Stone", "isTrue": "false" },
+        {"choice" : "Brush", "isTrue": "false" },
+        {"choice" : "Hair", "isTrue": "false" }
+      ]
+
+    },
+    {
+      "question": "What color is a stop sign?",
+      "choices": [
+        {"choice" : "Red and White", "isTrue": "true"},
+        {"choice" : "Pink and Green", "isTrue": "false" },
+        {"choice" : "Yellow and Black", "isTrue": "false" },
+        {"choice" : "Green and Blue", "isTrue": "false" }
+      ]
+
+    },
+    {
+      "question": "What is not vehicle?",
+      "choices": [
+        {"choice" : "Cat", "isTrue": "true"},
+        {"choice" : "Bike", "isTrue": "false" },
+        {"choice" : "Train", "isTrue": "false" },
+        {"choice" : "Car", "isTrue": "false" }
+      ]
+    },
+    {
+      "question": "Summer is ...?",
+      "choices": [
+        {"choice" : "Hot", "isTrue": "true"},
+        {"choice" : "Cold", "isTrue": "false" },
+        {"choice" : "Windy", "isTrue": "false" },
+        {"choice" : "Rainy", "isTrue": "false" }
+      ]
+    },
+    {
+      "question": "What is the capital of Thailand?",
+      "choices": [
+        {"choice" : "Bangkok", "isTrue": "true"},
+        {"choice" : "Phuket", "isTrue": "false" },
+        {"choice" : "Songkhla", "isTrue": "false" },
+        {"choice" : "Chiangmai", "isTrue": "false" }
+      ]
+    },
+    {
+      "question": "Where is Japan?",
+      "choices": [
+        {"choice" : "Asia", "isTrue": "true"},
+        {"choice" : "Europe", "isTrue": "false" },
+        {"choice" : "Africa", "isTrue": "false" },
+        {"choice" : "America", "isTrue": "false" }
+      ]
+    },
+    {
+      "question": "Which one is sweet?",
+      "choices": [
+        {"choice" : "Sugar", "isTrue": "true"},
+        {"choice" : "Water", "isTrue": "false" },
+        {"choice" : "Salt", "isTrue": "false" },
+        {"choice" : "Drug", "isTrue": "false" }
+      ]
+    },
+    {
+      "question": "Valentine's day is about?",
+      "choices": [
+        {"choice" : "Love", "isTrue": "true"},
+        {"choice" : "God", "isTrue": "false" },
+        {"choice" : "Food", "isTrue": "false" },
+        {"choice" : "Ghost", "isTrue": "false" }
+      ]
+    },
+    {
+      "question": "What is turtle?",
+      "choices": [
+        {"choice" : "Animal", "isTrue": "true"},
+        {"choice" : "Place", "isTrue": "false" },
+        {"choice" : "Human", "isTrue": "false" },
+        {"choice" : "Fruit", "isTrue": "false" }
+      ]
+    },
+    {
+      "question": "What are you?",
+      "choices": [
+        {"choice" : "Kid", "isTrue": "true"},
+        {"choice" : "Mother", "isTrue": "false" },
+        {"choice" : "Father", "isTrue": "false" },
+        {"choice" : "Shirt", "isTrue": "false" }
+      ]
+    },
+    {
+      "question": "1 3 5 7 ...?",
+      "choices": [
+        {"choice" : "9", "isTrue": "true"},
+        {"choice" : "10", "isTrue": "false" },
+        {"choice" : "11", "isTrue": "false" },
+        {"choice" : "8", "isTrue": "false" }
+      ]
+    },
+    {
+      "question": "4 x 10 = ?",
+      "choices": [
+        {"choice" : "40", "isTrue": "true"},
+        {"choice" : "410", "isTrue": "false" },
+        {"choice" : "104", "isTrue": "false" },
+        {"choice" : "04", "isTrue": "false" }
+      ]
+    },
+    {
+      "question": "What is yummy?",
+      "choices": [
+        {"choice" : "Ice Cream", "isTrue": "true"},
+        {"choice" : "Frog", "isTrue": "false" },
+        {"choice" : "Paper", "isTrue": "false" },
+        {"choice" : "Friend", "isTrue": "false" }
+      ]
+    }
+    
+  ]
+}

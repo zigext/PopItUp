@@ -1,0 +1,194 @@
+{
+  "questions": [
+    {
+      "question": "What do you use to grab things?",
+      "choices": [
+        {"choice" : "Hands", "isTrue": "true"},
+        {"choice" : "Head", "isTrue": "false" },
+        {"choice" : "Foots", "isTrue": "false" },
+        {"choice" : "Eyes", "isTrue": "false" }
+      ]
+
+    },
+    {
+      "question": "9-5 = ?",
+      "choices": [
+        {"choice" : "4", "isTrue": "true"},
+        {"choice" : "95", "isTrue": "false" },
+        {"choice" : "0", "isTrue": "false" },
+        {"choice" : "14", "isTrue": "false" }
+      ]
+
+    },
+    {
+      "question": "What do you call '+' ?",
+      "choices": [
+        {"choice" : "Add", "isTrue": "true"},
+        {"choice" : "Subtract", "isTrue": "false" },
+        {"choice" : "Cross", "isTrue": "false" },
+        {"choice" : "Divide", "isTrue": "false" }
+      ]
+
+    },
+    {
+      "question": "Pick the odd one out?",
+      "choices": [
+        {"choice" : "Basketball", "isTrue": "true"},
+        {"choice" : "Violin", "isTrue": "false" },
+        {"choice" : "Guitar", "isTrue": "false" },
+        {"choice" : "Piano", "isTrue": "false" }
+      ]
+
+    },
+    {
+      "question": "When do you go to school?",
+      "choices": [
+        {"choice" : "On Monday - Friday", "isTrue": "true"},
+        {"choice" : "At 1 a.m.", "isTrue": "false" },
+        {"choice" : "Saturday", "isTrue": "false" },
+        {"choice" : "In the evening", "isTrue": "false" }
+      ]
+
+    },
+    {
+      "question": "... apple?",
+      "choices": [
+        {"choice" : "An", "isTrue": "true"},
+        {"choice" : "An", "isTrue": "false" },
+        {"choice" : "Two", "isTrue": "false" },
+        {"choice" : "Many", "isTrue": "false" }
+      ]
+
+    },
+    {
+      "question": "What comes after October?",
+      "choices": [
+        {"choice" : "November", "isTrue": "true"},
+        {"choice" : "August", "isTrue": "false" },
+        {"choice" : "September", "isTrue": "false" },
+        {"choice" : "December", "isTrue": "false" }
+      ]
+
+    },
+    {
+      "question": "Square has ... corners?",
+      "choices": [
+        {"choice" : "4", "isTrue": "true"},
+        {"choice" : "3", "isTrue": "false" },
+        {"choice" : "5", "isTrue": "false" },
+        {"choice" : "6", "isTrue": "false" }
+      ]
+
+    },
+    {
+      "question": "Which one is solid?",
+      "choices": [
+        {"choice" : "Ice", "isTrue": "true"},
+        {"choice" : "Water", "isTrue": "false" },
+        {"choice" : "Gas", "isTrue": "false" },
+        {"choice" : "Milk", "isTrue": "false" }
+      ]
+
+    },
+    {
+      "question": "How many baby teeth do kids have?",
+      "choices": [
+        {"choice" : "20", "isTrue": "true"},
+        {"choice" : "10", "isTrue": "false" },
+        {"choice" : "5", "isTrue": "false" },
+        {"choice" : "1", "isTrue": "false" }
+      ]
+
+    },
+    {
+      "question": "What organ you use to see?",
+      "choices": [
+        {"choice" : "Eyes", "isTrue": "true"},
+        {"choice" : "Fingers", "isTrue": "false" },
+        {"choice" : "Nose", "isTrue": "false" },
+        {"choice" : "Ears", "isTrue": "false" }
+      ]
+    },
+    {
+      "question": "What do you use to clean your hair?",
+      "choices": [
+        {"choice" : "Shampoo", "isTrue": "true"},
+        {"choice" : "Soap", "isTrue": "false" },
+        {"choice" : "Toothbrush", "isTrue": "false" },
+        {"choice" : "Comb", "isTrue": "false" }
+      ]
+    },
+    {
+      "question": "What the color of Monday?",
+      "choices": [
+        {"choice" : "Yellow", "isTrue": "true"},
+        {"choice" : "Blue", "isTrue": "false" },
+        {"choice" : "Pink", "isTrue": "false" },
+        {"choice" : "Green", "isTrue": "false" }
+      ]
+    },
+    {
+      "question": "What is magical animal?",
+      "choices": [
+        {"choice" : "Unicorn", "isTrue": "true"},
+        {"choice" : "Whale", "isTrue": "false" },
+        {"choice" : "Lion", "isTrue": "false" },
+        {"choice" : "Shark", "isTrue": "false" }
+      ]
+    },
+    {
+      "question": "What are you doing now?",
+      "choices": [
+        {"choice" : "Reading", "isTrue": "true"},
+        {"choice" : "Studying", "isTrue": "false" },
+        {"choice" : "Eating", "isTrue": "false" },
+        {"choice" : "Sleeping", "isTrue": "false" }
+      ]
+    },
+    {
+      "question": "Who is Disney princess?",
+      "choices": [
+        {"choice" : "Elsa", "isTrue": "true"},
+        {"choice" : "Superman", "isTrue": "false" },
+        {"choice" : "Wonder Woman", "isTrue": "false" },
+        {"choice" : "Ironman", "isTrue": "false" }
+      ]
+    },
+    {
+      "question": "How many ears do you have?",
+      "choices": [
+        {"choice" : "2", "isTrue": "true"},
+        {"choice" : "0", "isTrue": "false" },
+        {"choice" : "4", "isTrue": "false" },
+        {"choice" : "8", "isTrue": "false" }
+      ]
+    },
+    {
+      "question": "Which one is holiday?",
+      "choices": [
+        {"choice" : "Christmas", "isTrue": "true"},
+        {"choice" : "Valentine's Day", "isTrue": "false"},
+        {"choice" : "Mother Day", "isTrue": "false"},
+        {"choice" : "Saturday", "isTrue": "false"}
+      ]
+    },
+    {
+      "question": "What do you use for painting?",
+      "choices": [
+        {"choice" : "Water Color", "isTrue": "true"},
+        {"choice" : "Fruit Juice", "isTrue": "false" },
+        {"choice" : "Glue", "isTrue": "false" },
+        {"choice" : "Coffee", "isTrue": "false" }
+      ]
+    },
+    {
+      "question": "Which one can't fly?",
+      "choices": [
+        {"choice" : "Cow", "isTrue": "true"},
+        {"choice" : "Owl", "isTrue": "false" },
+        {"choice" : "Plane", "isTrue": "false" },
+        {"choice" : "Bird", "isTrue": "false" }
+      ]
+    }
+  ]
+}

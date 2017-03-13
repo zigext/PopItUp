@@ -133,7 +133,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
     private void correctDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        builder.setPositiveButton("NEXT", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.next, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
@@ -187,7 +187,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
     private void wrongDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        builder.setNegativeButton("TRY AGAIN", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(R.string.try_again, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
@@ -368,7 +368,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
         }
 
         this.doubleBackToExitPressedOnce = true;
-        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.exit, Toast.LENGTH_SHORT).show();
 
         new Handler().postDelayed(new Runnable() {
 

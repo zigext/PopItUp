@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">PopItUp(EN)</string>
+    <string name="end_question">"You beat a sea monster, Let's Go!"</string>
+    <string name="end_question2">"You won a giant, Let's Go!"</string>
+    <string name="end_maths">"Very Good\! Let's enter the cave!"</string>
+    <string name="end_findthings">"This flower is very beautiful, Thank you!"</string>
+
+    <string name="activity_bridge">Bridge Game</string>
+    <string name="activity_camera">Find Thing for Pra Ram</string>
+    <string name="activity_camera_things">Flower</string>
+    <string name="activity_catch">Catch Game</string>
+    <string name="activity_main_reset">RESET</string>
+
+    <string name="activity_question">Question Game</string>
+    <string name="activity_question2">Question Game 2</string>
+    <string name="activity_maths">Maths Game</string>
+    <string name="activity_things">Find Things Game</string>
+
+    <string name="mainActivity_reset">Do you want to reset all missions?</string>
+    <string name="mainActivity_donereset">Complete!</string>
+
+    <string name="yes">YES</string>
+    <string name="no">NO</string>
+    <string name="cancel">CANCEL</string>
+    <string name="close">CLOSE</string>
+    <string name="play">PLAY</string>
+    <string name="next">PLAY</string>
+    <string name="try_again">TRY AGAIN</string>
+
+    <string name="case_popitup">Welcome to Pop It Up!</string>
+    <string name="case_animation1">Do you want to get in magical world?</string>
+    <string name="case_character_hanuman">มาทำความรู้จักหนุมานกันเถอะ</string>
+    <string name="character_naga">มาทำความรู้จักปีศาจทะเลกันเถอะ</string>
+    <string name="character_nilaphat">มาทำความรู้จักนิลพัทกันเถอะ</string>
+    <string name="character_ogre">ตมาทำความรู้จักยักษ์กันเถอะ</string>
+    <string name="character_sridaxrama">มาทำความรู้จักพระรามกับนางสีดากันเถอะ</string>
+
+    <string name="code_failed">CODE FAILED</string>
+
+    <string name="pass_before">You must pass previous mission(s).</string>
+    <string name="exit">Please click BACK again to quit.</string>
+
+    <string name="tryagain">What a pity! Please try again.</string>
+
+
+
+</resources>
