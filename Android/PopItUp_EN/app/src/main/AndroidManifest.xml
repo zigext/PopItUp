@@ -62,7 +62,8 @@
             android:name=".CatchActivity"
             android:screenOrientation="nosensor" />
         <activity android:name=".AnimationActivity" />
-        <activity android:name=".SoundActivity"></activity>
+        <activity android:name=".SoundActivity" />
+        <activity android:name=".CharacterActivity"></activity>
     </application>
 
 </manifest>

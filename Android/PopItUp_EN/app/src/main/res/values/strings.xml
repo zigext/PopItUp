@@ -29,11 +29,11 @@
 
     <string name="case_popitup">Welcome to Pop It Up!</string>
     <string name="case_animation1">Do you want to get in magical world?</string>
-    <string name="case_character_hanuman">มาทำความรู้จักหนุมานกันเถอะ</string>
-    <string name="character_naga">มาทำความรู้จักปีศาจทะเลกันเถอะ</string>
-    <string name="character_nilaphat">มาทำความรู้จักนิลพัทกันเถอะ</string>
-    <string name="character_ogre">ตมาทำความรู้จักยักษ์กันเถอะ</string>
-    <string name="character_sridaxrama">มาทำความรู้จักพระรามกับนางสีดากันเถอะ</string>
+    <string name="case_character_hanuman">"Let's meet Hanuman."</string>
+    <string name="character_naga">"Let's meet Sea Monster."</string>
+    <string name="character_nilaphat">"Let's meet Nilaphat."</string>
+    <string name="character_ogre">"Let's meet Giant."</string>
+    <string name="character_sridaxrama">"Let's meet Rama and Sida."</string>
 
     <string name="code_failed">CODE FAILED</string>
 
@@ -41,7 +41,6 @@
     <string name="exit">Please click BACK again to quit.</string>
 
     <string name="tryagain">What a pity! Please try again.</string>
-
 
 
 </resources>

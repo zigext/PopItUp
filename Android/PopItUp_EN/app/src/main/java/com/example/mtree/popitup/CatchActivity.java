@@ -56,7 +56,7 @@ public class CatchActivity extends AppCompatActivity implements View.OnClickList
         }
 
         this.doubleBackToExitPressedOnce = true;
-        Toast.makeText(this, R.string.tryagain, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.exit, Toast.LENGTH_SHORT).show();
 
         new Handler().postDelayed(new Runnable() {
 

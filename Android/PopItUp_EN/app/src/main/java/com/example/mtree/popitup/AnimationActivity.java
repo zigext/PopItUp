@@ -46,18 +46,6 @@ public class AnimationActivity extends AppCompatActivity {
             case ("character_hanuman"):
                 path = "android.resource://" + getPackageName() + "/" + R.raw.animate1;
                 break;
-            case ("character_naga"):
-                path = "android.resource://" + getPackageName() + "/" + R.raw.animate1;
-                break;
-            case ("character_nilaphat"):
-                path = "android.resource://" + getPackageName() + "/" + R.raw.animate1;
-                break;
-            case ("character_ogre"):
-                path = "android.resource://" + getPackageName() + "/" + R.raw.animate1;
-                break;
-            case ("character_sridaxrama"):
-                path = "android.resource://" + getPackageName() + "/" + R.raw.animate1;
-                break;
         }
     }
 }

@@ -321,13 +321,13 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
             case ("character_hanuman"):
                 sendIntent(strCode, AnimationActivity.class); break;
             case ("character_naga"):
-                sendIntent(strCode, AnimationActivity.class); break;
+                sendIntent(strCode, CharacterActivity.class); break;
             case ("character_nilaphat"):
-                sendIntent(strCode, AnimationActivity.class); break;
+                sendIntent(strCode, CharacterActivity.class); break;
             case ("character_ogre"):
-                sendIntent(strCode, AnimationActivity.class); break;
+                sendIntent(strCode, CharacterActivity.class); break;
             case ("character_sridaxrama"):
-                sendIntent(strCode, AnimationActivity.class); break;
+                sendIntent(strCode, CharacterActivity.class); break;
             case ("catch"): //catch game    mission1
                 sendIntent(strCode, CatchActivity.class); break;
 
